@@ -23,12 +23,15 @@ export let dataHandler = {
     init: function () {
     },
     getBoards: function (callback) {
+        console.log('in data handler.getBoards');
         // the boards are retrieved and then the callback function is called with the boards
 
         // Here we use an arrow function to keep the value of 'this' on dataHandler.
         //    if we would use function(){...} here, the value of 'this' would change.
         this._api_get('/get-boards', (response) => {
+            console.log('in d h.getBoards calling server');
             this._data = response;
+            console.log(this._data);
             callback(response);
         });
     },
